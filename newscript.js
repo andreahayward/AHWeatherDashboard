@@ -34,7 +34,9 @@ $("#searchButton").click(function() {
     }
     localStorage.setItem("searchHistory", searchHistory)
 
-//api call
+    $("#currentDay").text(moment().format('dddd MMMM Do YYYY, h:mm a'));
+
+    //api call
 var urlCurrent = "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&Appid=" + apiKey + "&units=imperial"
 $.ajax({
     url: urlCurrent,
@@ -52,6 +54,15 @@ $.ajax({
 
 
 //UV
+//var uvURL = `https://api.openweathermap.org/data/2.5/uvi?appid=42d9910c0bcc018a50ba4f26eb2e6e41&lat=${response.coord.lat}&lon=${response.coord.lon}`;
+//$.ajax({
+    //url: uvURL,
+    //method: "GET"
+    //}). then(function (response) {
+        //console.log(response)
+        //$(".uv").text("UV Index: " + response.list[i].wind.speed + " mph");
+
+    //})
 
 
 //5day
@@ -75,4 +86,4 @@ $.ajax({
 
 
 });
-})
+});
