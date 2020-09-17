@@ -35,18 +35,21 @@ $("#searchButton").click(function() {
     localStorage.setItem("searchHistory", searchHistory)
 
 //api call
+var urlCurrent = "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&Appid=" + apiKey + "&units=imperial"
 $.ajax({
-    url: "https://api.openweathermap.org/data/2.5/weather?q=" + search + "&Appid=" + apiKey + "&units=imperial",
+    url: urlCurrent,
     method: "GET"
     })
     .then(function (response) {
            //definitely use this for UV!!!!;
-         //console.log(response)
+        console.log(urlCurrent)
+        console.log(response)
 
-    var searchTemp = response.main.temp;
-    console.log(searchTemp);
-    $("#search-Temp").html("Temperature: " + searchTemp);       
+         $(".humidity").text("Humidity: " + response.list[i].main.humidity + "%");
+         $(".temperature").text("Temperature: " + response.list[i].main.temp + " F");
+         $(".wind").text("Wind Speed: " + response.list[i].wind.speed + " mph");  
         })
+
 
 //UV
 
