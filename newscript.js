@@ -39,15 +39,14 @@ $.ajax({
     url: "https://api.openweathermap.org/data/2.5/weather?q=" + search + "&Appid=" + apiKey + "&units=imperial",
     method: "GET"
     })
-    .then(function(response) {
+    .then(function (response) {
            //definitely use this for UV!!!!;
-            console.log(response)
+         //console.log(response)
 
     var searchTemp = response.main.temp;
     console.log(searchTemp);
-    $("#searchTemp").html("Temperature: " + searchTemp);       
+    $("#search-Temp").html("Temperature: " + searchTemp);       
         })
-
 
 //5day
 var urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&Appid=" + apiKey + "&units=imperial"
@@ -67,10 +66,7 @@ $.ajax({
 
         fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
     })
-})
 
 
-    
-          
-
+});
 })
