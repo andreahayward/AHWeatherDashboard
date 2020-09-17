@@ -48,6 +48,9 @@ $.ajax({
     $("#search-Temp").html("Temperature: " + searchTemp);       
         })
 
+//UV
+
+
 //5day
 var urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&Appid=" + apiKey + "&units=imperial"
 $.ajax({
