@@ -28,6 +28,15 @@ img {
 
 }
 
+.btn {
+    background-color: pink;
+    border: none;
+    color: white;
+    padding: 12px 16px;
+    font-size: 16px;
+    cursor: pointer;
+  }
+
 /* Set a background image by replacing the URL below */
 body {
     background: url('https://source.unsplash.com/ap3LXI0fPJY/1920x1080') no-repeat center center fixed;

@@ -53,17 +53,6 @@ $.ajax({
         })
 
 
-//UV
-//var uvURL = `https://api.openweathermap.org/data/2.5/uvi?appid=42d9910c0bcc018a50ba4f26eb2e6e41&lat=${response.coord.lat}&lon=${response.coord.lon}`;
-//$.ajax({
-    //url: uvURL,
-    //method: "GET"
-    //}). then(function (response) {
-        //console.log(response)
-        //$(".uv").text("UV Index: " + response.list[i].wind.speed + " mph");
-
-    //})
-
 
 //5day
 var urlFiveDay = "https://api.openweathermap.org/data/2.5/forecast?q=" + search + "&Appid=" + apiKey + "&units=imperial"
@@ -82,6 +71,17 @@ $.ajax({
         FiveDayTimeUTC1 = FiveDayTimeUTC1.toLocaleDateString("en-US");
 
         fiveDayDiv.append("<div class=fiveDayColor>" + "<p>" + FiveDayTimeUTC1 + "</p>" + `<img src="https://openweathermap.org/img/wn/${response.list[i].weather[0].icon}@2x.png">` + "<p>" + "Temperature: " + response.list[i].main.temp + "</p>" + "<p>" + "Humidity: " + response.list[i].main.humidity + "%" + "</p>" + "</div>");
+    })
+
+//UV
+var uvURL = `https://api.openweathermap.org/data/2.5/uvi?appid=42d9910c0bcc018a50ba4f26eb2e6e41&lat=${response.city.coord.lat}&lon=${response.city.coord.lon}`;
+$.ajax({
+    url: uvURL,
+    method: "GET"
+    }). then(function (response) {
+        //console.log(response)
+        $(".uv").text("UV Index: " + response.value);
+
     })
 
 
